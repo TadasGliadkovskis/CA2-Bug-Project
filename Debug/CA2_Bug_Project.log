@@ -1,0 +1,6 @@
+﻿  Board.cpp
+E:\Assignment 1\DKIT\Assignments\c++\Bug Project\CA2_Bug_Project\Crawler.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+E:\Assignment 1\DKIT\Assignments\c++\Bug Project\CA2_Bug_Project\Hopper.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+E:\Assignment 1\DKIT\Assignments\c++\Bug Project\CA2_Bug_Project\Board.cpp(64,36): warning C4101: 'e': unreferenced local variable
+E:\Assignment 1\DKIT\Assignments\c++\Bug Project\CA2_Bug_Project\Bug.h(33): warning C4715: 'Bug::getDirectionName': not all control paths return a value
+  CA2_Bug_Project.vcxproj -> E:\Assignment 1\DKIT\Assignments\c++\Bug Project\CA2_Bug_Project\Debug\CA2_Bug_Project.exe
