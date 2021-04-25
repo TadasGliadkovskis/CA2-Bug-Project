@@ -66,3 +66,34 @@ void Bug::changeDirection()
 		direction = dist6(rng);
 	} while (oldDirection == direction);
 }
+
+void Bug::fight(Bug &b2)
+{
+	cout << "Bug FIght !! " << this->getID() << " AND " << b2.getID() << endl;
+	if (this->getSize() > b2.getSize())
+	{
+		b2.dead();
+		this->size += b2.size;
+	}
+	else if (this->getSize() < b2.getSize())
+	{
+		this->dead();
+		b2.size += this->size;
+	}
+	else
+	{
+		random_device dev;
+		mt19937 rng(dev());
+		uniform_int_distribution<mt19937::result_type> dist6(1, 2);
+		if (dist6(rng) == 1)
+		{
+			this->dead();
+			b2.size += this->size;
+		}
+		else
+		{
+			b2.dead();
+			this->size += b2.size;
+		}
+	}
+}

@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <list>
 #include <vector>
 #include <string>
@@ -8,10 +10,9 @@
 #include "Hopper.h"
 class Board
 {
-	int height;
-	int width;
 	vector<Bug *> bugs;
 	void setUpBugVector(string bugInfo);
+	void fight();
 
 public:
 	Board() {}
@@ -19,6 +20,7 @@ public:
 	void displayAllBugs();
 	void findBugByID();
 	void tapBoard();
+	void tapBoardX();
 	void displayHistoryAllBugs();
 	void exit();
 	void displayAllCells();

@@ -1,7 +1,4 @@
 #include "Board.h"
-#include <iostream>
-#include <fstream>
-#include <sstream>
 
 void Board::initialiseBugBoard()
 {
@@ -106,11 +103,78 @@ void Board::findBugByID()
             cout << "Bug " << bugID << " not found" << endl;
 }
 
+void Board::tapBoardX()
+{
+      int loopAmount;
+      cout << endl
+           << "How many times do you want to tap the board? ";
+      while (true)
+      {
+            cin >> loopAmount;
+            if (!cin)
+            {
+                  cout << "Please enter in a number: ";
+                  cin.clear();
+                  cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                  continue;
+            }
+            break;
+      }
+      for (int i = 0; i <= loopAmount; i++)
+      {
+            for (Bug *b : bugs)
+            {
+                  if (b->isAlive())
+                  {
+                        b->move();
+                  }
+            }
+            fight();
+      }
+}
+
 void Board::tapBoard()
 {
       for (Bug *b : bugs)
       {
-            b->move();
+            if (b->isAlive())
+            {
+                  b->move();
+            }
+      }
+      fight();
+}
+
+void Board::fight()
+{
+      pair<int, int> b1Position;
+      pair<int, int> b2Position;
+      int counter1 = 0;
+      int counter2 = 0;
+      for (Bug *b1 : bugs)
+      {
+            counter1++;
+            if (b1->isAlive())
+            {
+                  counter2 = 0;
+                  b1Position = b1->getPosition();
+                  for (Bug *b2 : bugs)
+                  {
+                        counter2++;
+                        if (b2->isAlive())
+                        {
+                              if (counter1 != counter2)
+                              {
+
+                                    b2Position = b2->getPosition();
+                                    if (b1Position == b2Position)
+                                    {
+                                          b1->fight(*b2);
+                                    }
+                              }
+                        }
+                  }
+            }
       }
 }
 
@@ -181,5 +245,4 @@ void Board::displayAllCells()
 
 Board::~Board()
 {
-      cout << "Desturction";
 }

@@ -31,6 +31,7 @@ class Bug
             return "West";
         }
     }
+    void dead() { this->alive = false; }
 
 public:
     Bug(string type, int id, pair<int, int> pos, int direction, int size)
@@ -74,6 +75,7 @@ public:
     }
     bool isWayBlocked();
     void changeDirection();
+    void fight(Bug &b2);
     virtual void move() = 0;
     virtual ~Bug()
     {
