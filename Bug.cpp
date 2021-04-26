@@ -69,7 +69,6 @@ void Bug::changeDirection()
 
 void Bug::fight(Bug &b2)
 {
-	cout << "Bug FIght !! " << this->getID() << " AND " << b2.getID() << endl;
 	if (this->getSize() > b2.getSize())
 	{
 		b2.dead();

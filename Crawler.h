@@ -32,6 +32,5 @@ public:
     void move();
     ~Crawler()
     {
-        cout << "Destructure crawler \n";
     }
 };

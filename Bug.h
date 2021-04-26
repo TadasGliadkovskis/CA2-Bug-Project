@@ -73,12 +73,19 @@ public:
         b.print(out);
         return out;
     }
+    friend bool operator==(const Bug& b1, const Bug& b2)
+    {
+        return b1.getID() == b2.getID();
+    }
+    friend bool operator!=(const Bug& b1, const Bug& b2)
+    {
+        return !(b1.getID() == b2.getID());
+    }
     bool isWayBlocked();
     void changeDirection();
     void fight(Bug &b2);
     virtual void move() = 0;
     virtual ~Bug()
     {
-        cout << "destructure bug \n";
     }
 };

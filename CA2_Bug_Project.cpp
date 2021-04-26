@@ -69,19 +69,5 @@ int main()
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    /*
-
-    Board game;
-    game.initialiseBugBoard();
-    game.displayAllBugs();
-    for (int i = 0; i < 1; i++)
-    {
-        game.tapBoard();
-    }
-    cout << "Exit" << endl;
-    game.displayAllBugs();
-    game.displayAllCells();
-    cout << "Finish" << endl;
-    */
     return 0;
 }

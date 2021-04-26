@@ -32,6 +32,5 @@ public:
     void move();
     ~Hopper()
     {
-        cout << "Destructure Hopper \n";
     }
 };

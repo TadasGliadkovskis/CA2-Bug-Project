@@ -2,7 +2,6 @@
 
 void Board::initialiseBugBoard()
 {
-      cout << "Reading bugs.txt file " << endl;
       string line;
       ifstream stream("bugs.txt");
 
@@ -149,23 +148,17 @@ void Board::fight()
 {
       pair<int, int> b1Position;
       pair<int, int> b2Position;
-      int counter1 = 0;
-      int counter2 = 0;
       for (Bug *b1 : bugs)
       {
-            counter1++;
             if (b1->isAlive())
             {
-                  counter2 = 0;
                   b1Position = b1->getPosition();
                   for (Bug *b2 : bugs)
                   {
-                        counter2++;
-                        if (b2->isAlive())
+                        if (b2 != b1)
                         {
-                              if (counter1 != counter2)
+                              if (b2->isAlive())
                               {
-
                                     b2Position = b2->getPosition();
                                     if (b1Position == b2Position)
                                     {
@@ -227,10 +220,13 @@ void Board::displayAllCells()
                   cout << "(" << x << "," << y << "): ";
                   for (Bug *b : bugs)
                   {
-                        if (b->getXPos() == x && b->getYPos() == y)
+                        if (b->isAlive())
                         {
-                              cout << b->getType() << " " << b->getID() << ", ";
-                              empty = false;
+                              if (b->getXPos() == x && b->getYPos() == y)
+                              {
+                                    cout << b->getType() << " " << b->getID() << ", ";
+                                    empty = false;
+                              }
                         }
                   }
                   if (empty)
